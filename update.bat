@@ -30,9 +30,9 @@ rem Add all changed files except the script itself
 %GIT_EXEC% add . 
 
 rem Commit all changes with message "Update"
-%GIT_EXEC% commit -a --allow-empty-message
+%GIT_EXEC% commit -a --allow-empty-message -m "Update"
 
 rem Push changes to remote repository
-%GIT_EXEC% push -u origin main
+git push -u origin main
 
 echo Commit and push successful!
