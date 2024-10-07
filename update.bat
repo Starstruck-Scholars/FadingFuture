@@ -1,4 +1,5 @@
 @echo off
+cd %1
 
 rem Check if git is installed
 git --version > NUL 2>&1
