@@ -34,7 +34,7 @@ git reset -- .gitignore
 git reset -- run.bat
 
 rem Commit all changes with message "Update"
-%GIT_EXEC% commit --allow-empty-message 
+%GIT_EXEC% commit -a --allow-empty-message 
 
 rem Push changes to remote repository
 git push -u origin main -f
