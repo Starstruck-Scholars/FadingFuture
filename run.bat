@@ -1,2 +1,3 @@
 @echo off
-start C:\Users\Riley\Documents\FadingFuture\update.bat
+cd %1
+start update.bat
