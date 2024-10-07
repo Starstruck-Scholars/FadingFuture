@@ -27,12 +27,12 @@ rem Delete the error.log file (if it exists)
 if exist error.log del error.log
 
 rem Add all changed files except the script itself
-%GIT_EXEC% add . --exclude=%SCRIPT_NAME:.bat%
+%GIT_EXEC% add . 
 
 rem Commit all changes with message "Update"
-%GIT_EXEC% commit -m "Update"
+%GIT_EXEC% commit -a --allow-empty-message
 
 rem Push changes to remote repository
-%GIT_EXEC% push %REMOTE_URL%
+%GIT_EXEC% push -u origin
 
 echo Commit and push successful!
