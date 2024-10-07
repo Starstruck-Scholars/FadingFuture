@@ -28,9 +28,11 @@ if exist error.log del error.log
 
 rem Add all changed files except the script itself
 %GIT_EXEC% add . 
+git reset -- main/update.bat
+git reset -- main/.gitignore
 
 rem Commit all changes with message "Update"
-%GIT_EXEC% commit -a --allow-empty-message -m "Update"
+%GIT_EXEC% commit -a --allow-empty-message 
 
 rem Push changes to remote repository
 git push -u origin main
