@@ -13,6 +13,13 @@ set GIT_EXEC="C:\Program Files\Git\bin\git.exe"
 rem Set the remote repository URL
 set REMOTE_URL=https://github.com/Starstruck-Scholars/FadingFuture.git
 
+rem Check if the current directory is a Git repository by attempting a Git command
+%GIT_EXEC% status > NUL 2>&1
+if %errorlevel% == 1 (
+  echo Current directory is not a Git repository. Initializing...
+  %GIT_EXEC% init
+)
+
 rem Add all changed files
 %GIT_EXEC% add .
 
