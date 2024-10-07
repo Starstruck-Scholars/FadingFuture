@@ -36,6 +36,6 @@ rem Commit all changes with message "Update"
 %GIT_EXEC% commit -a --allow-empty-message 
 
 rem Push changes to remote repository
-git push -u origin main
+git push -u origin main -f
 
 echo Commit and push successful!
