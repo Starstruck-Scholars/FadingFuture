@@ -13,6 +13,9 @@ set GIT_EXEC="C:\Program Files\Git\bin\git.exe"
 rem Set the remote repository URL
 set REMOTE_URL=https://github.com/Starstruck-Scholars/FadingFuture.git
 
+rem Get the current script's filename
+set SCRIPT_NAME=%~f0
+
 rem Check if the current directory is a Git repository by attempting a Git command
 %GIT_EXEC% status > NUL 2>&1
 if %errorlevel% == 1 (
@@ -20,15 +23,11 @@ if %errorlevel% == 1 (
   %GIT_EXEC% init
 )
 
-rem Add all changed files
-%GIT_EXEC% add .
+rem Delete the error.log file (if it exists)
+if exist error.log del error.log
 
-rem Check if there are changes to commit
-%GIT_EXEC% status -s > NUL 2>&1
-if %errorlevel% == 1 (
-  echo No changes to commit. Exiting...
-  exit /b
-)
+rem Add all changed files except the script itself
+%GIT_EXEC% add . --exclude=%SCRIPT_NAME:.bat%
 
 rem Commit all changes with message "Update"
 %GIT_EXEC% commit -m "Update"
