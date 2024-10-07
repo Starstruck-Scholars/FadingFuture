@@ -1,6 +1,5 @@
 @echo off
 
-cd %1
 rem Check if git is installed
 git --version > NUL 2>&1
 if %errorlevel% == 1 (
@@ -29,13 +28,14 @@ if exist error.log del error.log
 
 rem Add all changed files except the script itself
 %GIT_EXEC% add . 
-git reset -- main/update.bat
-git reset -- main/.gitignore
+git reset -- update.bat
+git reset -- .gitignore
+git reset -- run.bat
 
 rem Commit all changes with message "Update"
-%GIT_EXEC% commit -a --allow-empty-message 
+%GIT_EXEC% commit --allow-empty-message 
 
 rem Push changes to remote repository
-git push -u origin main -f
+git push -u origin main
 
 echo Commit and push successful!
